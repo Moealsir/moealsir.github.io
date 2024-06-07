@@ -1,11 +1,11 @@
 "use client";
 
-import Header from './header'
-import Hero from './hero'
-import Features from './features'
-import About from './about'
-import Team from './team'
-import React from 'react'
+import Header from "./header";
+import Hero from "./hero";
+import Features from "./features";
+import About from "./about";
+import Team from "./team";
+import React from "react";
 import axios from "axios";
 import { useQuery } from "react-query";
 import { WeatherDetail } from "@/utils/WeatherDetails";
@@ -68,6 +68,5 @@ export default function LandingPage() {
       <Team />
       <About />
     </div>
-  )
-
+  );
 }

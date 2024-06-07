@@ -17,26 +17,7 @@ import { loadingCityAtom, placeAtom } from "@/app/atom";
 import { useAtom } from "jotai";
 import { useEffect } from "react";
 import { WeatherDetail } from "@/utils/WeatherDetails";
-
-interface WeatherData {
-  cod: string;
-  message: number;
-  cnt: number;
-  list: WeatherDetail[];
-  city: {
-    id: number;
-    name: string;
-    coord: {
-      lat: number;
-      lon: number;
-    };
-    country: string;
-    population: number;
-    timezone: number;
-    sunrise: number;
-    sunset: number;
-  };
-}
+import { WeatherData } from "@/utils/WeatherData";
 
 export default function Home() {
   const [place, setPlace] = useAtom(placeAtom); // Updated: Added placeAtom
@@ -68,7 +49,7 @@ export default function Home() {
       data?.list.map(
         (entry) => new Date(entry.dt * 1000).toISOString().split("T")[0]
       )
-    )
+    ),
   ];
 
   const firstDataForEachDate = uniqueDates.map((date) => {
