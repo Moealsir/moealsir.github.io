@@ -4,8 +4,8 @@ import React from "react";
 export default function About() {
   return (
     <div>
-      <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-full md:px-10 lg:px-10">
-        <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="px-4 pt-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-full md:px-10 lg:px-10">
+        <div className="grid gap-4 row-gap-6 mb-2 sm:grid-cols-2 lg:grid-cols-4">
           <div className="sm:col-span-2">
             <a
               href="/"
@@ -32,7 +32,7 @@ export default function About() {
                 About WeatherWave
               </span>
             </a>
-            <div className="mt-6 lg:max-w-sm">
+            <div className="mt-2 lg:max-w-sm">
               <p className="text-sm text-gray-800">
                 WeatherWave is committed to delivering the most reliable weather
                 information to help you stay prepared for any conditions. Our
@@ -51,12 +51,12 @@ export default function About() {
             <div className="flex">
               <p className="mr-1 text-gray-800">Phone:</p>
               <a
-                href="tel:850-123-5021"
+                href="tel:97439900342"
                 aria-label="Our phone"
                 title="Our phone"
                 className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
               >
-                +97439900342
+                +97439900342 - +249124250586
               </a>
             </div>
             <div className="flex">
@@ -123,7 +123,7 @@ export default function About() {
         </div>
         <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
           <p className="text-sm text-gray-600">
-            © Copyright 2020 WeatherWave Inc. All rights reserved.
+            © Copyright 2024 WeatherWave Inc. All rights reserved.
           </p>
           <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
             <li>

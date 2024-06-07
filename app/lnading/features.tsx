@@ -23,7 +23,7 @@ export default function Features() {
         </div>
         <div className="grid grid-cols-2 gap-5 row-gap-6 mb-4 sm:grid-cols-3 lg:grid-cols-3">
           <div className="text-center">
-            <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-24 sm:h-24">
+            <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4  rounded-full bg-indigo-50 sm:w-24 sm:h-24">
               <svg
                 stroke="currentColor"
                 fill="none"
@@ -40,7 +40,7 @@ export default function Features() {
               </svg>
             </div>
             <h6 className="mb-2 font-semibold leading-5">Visability</h6>
-            <p>
+            <p className="text-gray-700">
               Get real-time visibility levels in your area to ensure safe travel
               and outdoor activities. Know the clarity of your surroundings at
               any given time.
@@ -63,7 +63,7 @@ export default function Features() {
               </svg>
             </div>
             <h6 className="mb-2 font-semibold leading-5">Humidity</h6>
-            <p>
+            <p className="text-gray-700">
               Monitor the humidity levels to stay comfortable and prepared for
               different weather conditions. This is especially useful for those
               with health sensitivities or for planning outdoor activities.
@@ -85,7 +85,7 @@ export default function Features() {
               </svg>
             </div>
             <h6 className="mb-2 font-semibold leading-5">Wind speed</h6>
-            <p>
+            <p className="text-gray-700">
               Receive accurate and up-to-date wind speed information. This
               feature is essential for planning activities such as sailing,
               flying, or outdoor events.
@@ -107,7 +107,7 @@ export default function Features() {
               </svg>
             </div>
             <h6 className="mb-2 font-semibold leading-5">Air Pressure</h6>
-            <p>
+            <p className="text-gray-700">
               Track changes in air pressure to anticipate weather shifts.
               Understanding air pressure can help predict storms and other
               weather patterns.
@@ -137,7 +137,7 @@ export default function Features() {
               </svg>
             </div>
             <h6 className="mb-2 font-semibold leading-5">Sunrise</h6>
-            <p>
+            <p className="text-gray-700">
               Plan your morning activities with precise sunrise times. Enjoy the
               beauty of the morning by knowing exactly when the sun will rise in
               your location.
@@ -167,7 +167,7 @@ export default function Features() {
               </svg>
             </div>
             <h6 className="mb-2 font-semibold leading-5">Sunset</h6>
-            <p>
+            <p className="text-gray-700">
               Make the most of your evenings with accurate sunset times. Know
               when the day ends so you can catch the beautiful evening sky and
               plan your nighttime activities.

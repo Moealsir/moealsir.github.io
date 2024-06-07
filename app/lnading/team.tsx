@@ -10,10 +10,6 @@ export default function Team() {
               <span className="relative">Meet Our Team</span>
             </span>
           </h2>
-          <p className="text-base text-gray-700 md:text-lg text-center">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium.
-          </p>
         </div>
         <div className="grid gap-10 mx-auto lg:max-w-screen sm:grid-cols-2 lg:grid-cols-2 items-center justify-center">
           <div className="flex flex-col items-center">
