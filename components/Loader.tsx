@@ -7,26 +7,20 @@ const GUTTER = 5; // Spacing in percentage between tiles
 
 interface LoaderState {
   positions: {
-    1: string;
-    2: string;
-    3: string;
-    4: string | null;
-    5: string;
-    6: string;
-    7: string;
+    [key: string]: string | null;
   };
   stateNumber: number;
 }
 
 const initialState: LoaderState = {
   positions: {
-    1: "alpha",
-    2: "bravo",
-    3: "charlie",
-    4: null,
-    5: "delta",
-    6: "echo",
-    7: "foxtrot",
+    "1": "alpha",
+    "2": "bravo",
+    "3": "charlie",
+    "4": null,
+    "5": "delta",
+    "6": "echo",
+    "7": "foxtrot",
   },
   stateNumber: 0,
 };
@@ -81,27 +75,27 @@ class Loader extends Component<{ size?: number; style?: React.CSSProperties; cen
   tileIndexToMove(): keyof LoaderState['positions'] {
     switch (this.state.stateNumber) {
       case 0:
-        return 7;
+        return "7";
       case 1:
-        return 6;
+        return "6";
       case 2:
-        return 5;
+        return "5";
       case 3:
-        return 4;
+        return "4";
       case 4:
-        return 3;
+        return "3";
       case 5:
-        return 2;
+        return "2";
       case 6:
-        return 1;
+        return "1";
       case 7:
-        return 4;
+        return "4";
       default:
-        return 0 as never; // or throw an error, depending on your logic
+        return "0" as never; // or throw an error, depending on your logic
     }
   }
 
-  positionForTile(radioCommand: string) {
+  positionForTile(radioCommand: string | null) {
     for (const position in this.state.positions) {
       if (Object.prototype.hasOwnProperty.call(this.state.positions, position)) {
         const tile = this.state.positions[position];
@@ -119,7 +113,7 @@ class Loader extends Component<{ size?: number; style?: React.CSSProperties; cen
     const indexToMove = this.tileIndexToMove();
     const newPositions = {
       ...currentPositions,
-      [String(indexToMove)]: null,
+      [indexToMove]: null,
       [emptyIndex]: currentPositions[indexToMove],
     };
 
@@ -135,7 +129,7 @@ class Loader extends Component<{ size?: number; style?: React.CSSProperties; cen
         const pos = this.positionForTile(radioCommand);
         const styles = {
           transition: TRANSITION + "s cubic-bezier(0.86, 0, 0.07, 1)",
-          WebkitClipPath: this.clipPathForPosition(parseInt(pos ?? "0", 10)),
+          WebkitClipPath: this.clipPathForPosition(parseInt(pos || "0", 10)),
         };
 
         return (
