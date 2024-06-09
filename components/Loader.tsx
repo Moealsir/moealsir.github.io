@@ -1,18 +1,29 @@
-// Loader.tsx
-/** @format */
-import React from "react";
+import React, { Component } from "react";
 
 const TIMER = 50; // Milliseconds between moving the next block
 const TRANSITION = 0.2; // Seconds to actually move one block
 const DEF_SIZE = 10; // Pixels height/width
 const GUTTER = 5; // Spacing in percentage between tiles
 
-const initialState = {
+interface LoaderState {
+  positions: {
+    1: string;
+    2: string;
+    3: string;
+    4: string | null;
+    5: string;
+    6: string;
+    7: string;
+  };
+  stateNumber: number;
+}
+
+const initialState: LoaderState = {
   positions: {
     1: "alpha",
     2: "bravo",
     3: "charlie",
-    4: null as string | null,
+    4: null,
     5: "delta",
     6: "echo",
     7: "foxtrot",
@@ -20,16 +31,19 @@ const initialState = {
   stateNumber: 0,
 };
 
-class Loader extends React.Component<{ size?: number; style?: React.CSSProperties; center?: boolean }> {
+class Loader extends Component<{ size?: number; style?: React.CSSProperties; center?: boolean }, LoaderState> {
   timer: NodeJS.Timeout | undefined;
-  state = initialState;
+
+  state: LoaderState = initialState;
 
   componentDidMount() {
     this.setTimer(TIMER);
   }
 
   componentWillUnmount() {
-    clearInterval(this.timer);
+    if (this.timer) {
+      clearInterval(this.timer);
+    }
   }
 
   setTimer(time: number) {
@@ -64,7 +78,7 @@ class Loader extends React.Component<{ size?: number; style?: React.CSSPropertie
     }
   }
 
-  tileIndexToMove(): keyof typeof initialState['positions'] {
+  tileIndexToMove(): keyof LoaderState['positions'] {
     switch (this.state.stateNumber) {
       case 0:
         return 7;
@@ -87,7 +101,6 @@ class Loader extends React.Component<{ size?: number; style?: React.CSSPropertie
     }
   }
 
-
   positionForTile(radioCommand: string) {
     for (const position in this.state.positions) {
       if (Object.prototype.hasOwnProperty.call(this.state.positions, position)) {
@@ -99,8 +112,6 @@ class Loader extends React.Component<{ size?: number; style?: React.CSSPropertie
     }
     return ""; // or throw an error, depending on your logic
   }
-  
-
 
   setNextState = () => {
     const currentPositions = this.state.positions;
@@ -111,7 +122,6 @@ class Loader extends React.Component<{ size?: number; style?: React.CSSPropertie
       [String(indexToMove)]: null,
       [emptyIndex]: currentPositions[indexToMove],
     };
-
 
     const currentState = this.state.stateNumber;
     const nextState = currentState === 7 ? 0 : currentState + 1;
