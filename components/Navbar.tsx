@@ -88,25 +88,25 @@ export default function Navbar({ location }: Props) {
   return (
     <>
       <nav className="shadow-sm sticky top-0 left-0 z-50 bg-gray-900">
-        <div className="h-[80px] w-full flex flex-col sm:flex-row justify-between items-center max-w-full px-3 mx-auto">
-          <div className="flex items-center justify-center gap-2 mx-auto sm:mx-0 py-2">
-            <h2 className="text-gray-500 text-4xl">WeatherWave</h2>
-            <MdWbSunny className="text-3xl mt-1 text-yellow-300" />
+        <div className="flex flex-col items-center w-full px-3 mx-auto md:flex-row md:h-[80px] md:justify-between">
+          <div className="flex items-center gap-2 my-2 md:my-0">
+            <h2 className="text-3xl text-gray-500">WeatherWave</h2>
+            <MdWbSunny className="mt-1 text-3xl text-yellow-300" />
           </div>
-          {/*  */}
-          <section className="flex gap-2 items-center mt-2 sm:mt-0">
+          <section className="flex items-center gap-2 w-full md:w-auto">
             <MdMyLocation
               title="Your Current Location"
               onClick={handleCurrentLocation}
-              className="text-2xl text-gray-400 hover:opacity-80 cursor-pointer"
+              className="text-2xl text-gray-400 cursor-pointer hover:opacity-80"
             />
-            <p className="text-gray-400 text-lg">{location}</p>
-            <div className="relative flex w-full max-w-sm">
+            <p className="text-lg text-gray-400">{location}</p>
+            <div className="relative flex-1 md:flex-none">
               {/* SearchBox */}
               <SearchBox
                 value={city}
                 onSubmit={handleSubmiSearch}
                 onChange={(e) => handleInputChang(e.target.value)}
+                className="mb-2"
               />
               <SuggetionBox
                 {...{
