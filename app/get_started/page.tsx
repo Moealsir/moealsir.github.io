@@ -97,9 +97,6 @@ export default function Home() {
                     <span className="text-9xl animate-bounce-slow">
                       {convertKelvinToCelsius(firstData?.main.temp ?? 296.37)}°
                     </span>
-                    <div className="shadow-[0_35px_60px_-15px] w-80 text-center">
-                      -
-                    </div>
                     <p className="text-xl pr-3 pt-6">
                       <span> Feels like</span>
                       <span>
@@ -178,7 +175,7 @@ export default function Home() {
               </div>
             </section>
 
-            <p className="text-2xl text-slate-50">Forecast (7 days)</p>
+            <p className="text-2xl text-slate-50 ml-2">Forecast (7 days)</p>
             <section className="flex h-full gap-4 justify-around pl-2 pr-2">
               {firstDataForEachDate.map((d, i) => (
                 <ForecastWeatherDetail
