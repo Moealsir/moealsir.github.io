@@ -179,7 +179,7 @@ export default function Home() {
             </section>
 
             <p className="text-2xl text-slate-50">Forecast (7 days)</p>
-            <section className="flex md:flex-row flex-col h-full gap-4 justify-start pl-2 pr-2 overflow-x-auto">
+            <section className="flex md:flex-row flex-col h-full gap-4 justify-center pl-2 pr-2 overflow-x-auto">
               {firstDataForEachDate.map((d, i) => (
                 <div className="min-w-[16rem] flex-shrink-0" key={i}>
                   <ForecastWeatherDetail
