@@ -87,24 +87,22 @@ export default function Navbar({ location }: Props) {
   }
   return (
     <>
-      <nav className="shadow-sm  sticky top-0 left-0 z-50 bg-gray-900">
-        <div className="h-[80px]     w-full    flex   justify-between items-center  max-w-full px-3 mx-auto">
-          <p className="flex items-center justify-center gap-2  ">
-            <h2 className="text-gray-500 text-3xl">WeatherWave</h2>
+      <nav className="shadow-sm sticky top-0 left-0 z-50 bg-gray-900">
+        <div className="h-[80px] w-full flex flex-col sm:flex-row justify-between items-center max-w-full px-3 mx-auto">
+          <div className="flex items-center justify-center gap-2 mx-auto sm:mx-0 py-2">
+            <h2 className="text-gray-500 text-4xl">WeatherWave</h2>
             <MdWbSunny className="text-3xl mt-1 text-yellow-300" />
-          </p>
+          </div>
           {/*  */}
-          <section className="flex gap-2 items-center">
+          <section className="flex gap-2 items-center mt-2 sm:mt-0">
             <MdMyLocation
               title="Your Current Location"
               onClick={handleCurrentLocation}
-              className="text-2xl  text-gray-400 hover:opacity-80 cursor-pointer"
+              className="text-2xl text-gray-400 hover:opacity-80 cursor-pointer"
             />
-            <MdOutlineLocationOn className="text-3xl" />
-            <p className="text-slate-900/80 text-sm"> {location} </p>
-            <div className="relative hidden md:flex">
+            <p className="text-gray-400 text-lg">{location}</p>
+            <div className="relative flex w-full max-w-sm">
               {/* SearchBox */}
-
               <SearchBox
                 value={city}
                 onSubmit={handleSubmiSearch}
@@ -122,25 +120,6 @@ export default function Navbar({ location }: Props) {
           </section>
         </div>
       </nav>
-      <section className="flex   max-w-7xl px-3 md:hidden ">
-        <div className="relative ">
-          {/* SearchBox */}
-
-          <SearchBox
-            value={city}
-            onSubmit={handleSubmiSearch}
-            onChange={(e) => handleInputChang(e.target.value)}
-          />
-          <SuggetionBox
-            {...{
-              showSuggestions,
-              suggestions,
-              handleSuggestionClick,
-              error,
-            }}
-          />
-        </div>
-      </section>
     </>
   );
 }
