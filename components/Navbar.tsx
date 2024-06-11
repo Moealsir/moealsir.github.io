@@ -93,7 +93,7 @@ export default function Navbar({ location }: Props) {
             <h2 className="text-3xl text-gray-500">WeatherWave</h2>
             <MdWbSunny className="mt-1 text-3xl text-yellow-300" />
           </div>
-          <section className="flex items-center gap-2 w-full md:w-auto">
+          <section className="flex items-center gap-2 w-screen md:w-auto">
             <MdMyLocation
               title="Your Current Location"
               onClick={handleCurrentLocation}
