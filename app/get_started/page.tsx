@@ -21,10 +21,18 @@ import { WeatherDetail } from "@/utils/WeatherDetails";
 import { WeatherData } from "@/utils/WeatherData";
 import Loader from "@/components/Loader";
 
+/**
+ * Renders the Home component.
+ * 
+ * @returns The rendered Home component.
+ */
+
 export default function Home() {
+  // Atom state for the place and loading status
   const [place, setPlace] = useAtom(placeAtom); // Updated: Added placeAtom
   const [loadingCity] = useAtom(loadingCityAtom);
 
+  // React Query to fetch weather data
   const { isLoading, error, data, refetch } = useQuery<WeatherData>(
     "repoData",
     async () => {
@@ -38,6 +46,7 @@ export default function Home() {
     }
   );
 
+  // Effect to refetch data when place changes
   useEffect(() => {
     if (place) {
       refetch(); // Updated: Ensure refetching data when place changes
@@ -46,6 +55,7 @@ export default function Home() {
 
   const firstData = data?.list[0];
 
+  // Extract unique dates from the data
   const uniqueDates = [
     ...new Set(
       data?.list.map(
@@ -54,6 +64,7 @@ export default function Home() {
     ),
   ];
 
+  // Get the first data entry for each unique date
   const firstDataForEachDate = uniqueDates.map((date) => {
     return data?.list.find((entry) => {
       const entryDate = new Date(entry.dt * 1000).toISOString().split("T")[0];
@@ -68,6 +79,7 @@ export default function Home() {
         <Loader size={100} />
       </div>
     );
+
   if (error)
     return (
       <div className="flex items-center min-h-screen justify-center">
@@ -228,6 +240,10 @@ export default function Home() {
   );
 }
 
+/**
+ * Renders a skeleton component for weather information.
+ * This component is used to display a loading state while fetching weather data.
+ */
 function WeatherSkeleton() {
   return (
     <section className="space-y-8">

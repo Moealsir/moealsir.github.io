@@ -13,7 +13,13 @@ import { useAtom } from "jotai";
 type Props = { location?: string };
 
 const API_KEY = process.env.NEXT_PUBLIC_WEATHER_KEY;
-
+/**
+ * Renders the Navbar component with a search bar and location suggestions.
+ *
+ * @param {Props} props - The component props.
+ * @param {string} props.location - The location to display in the Navbar.
+ * @return {JSX.Element} The rendered Navbar component.
+ */
 export default function Navbar({ location }: Props) {
   const [city, setCity] = useState("");
   const [error, setError] = useState("");
@@ -65,7 +71,10 @@ export default function Navbar({ location }: Props) {
       }, 500);
     }
   }
-
+  /**
+   * Get current location
+   * @returns {Promise<void>}
+   */
   function handleCurrentLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(async (postiion) => {

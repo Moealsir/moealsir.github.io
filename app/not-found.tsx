@@ -1,6 +1,11 @@
 import React from "react";
 import Link from "next/link";
 
+/**
+ * Renders a 404 error page with a message and a link to the homepage.
+ *
+ * @return {JSX.Element} The rendered 404 error page.
+ */
 export default function NotFound() {
   return (
     <section className="flex items-center justify-center h-screen sm:p-16 dark:bg-gray-50 dark:text-gray-800">
